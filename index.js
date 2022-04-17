@@ -12,12 +12,15 @@ const postRoute = require("./routes/posts");
 const router = express.Router();
 const path = require("path");
 
+var port = process.env.PORT || 8080;
+
 dotenv.config();
 
 app.use(cors());
 
+
 mongoose.connect(
-  'mongodb+srv://admin:1234@cluster0.5n3c3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  process.env.MONGO_URL,
 
   { connectTimeoutMS: 100000, useNewUrlParser: true, useUnifiedTopology: true },
   
@@ -60,6 +63,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log("Backend server is running!"); 
 });
