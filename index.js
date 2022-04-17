@@ -20,10 +20,14 @@ mongoose.connect(
   
  
 
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+  // () => {
+  //   console.log("Connected to MongoDB");
+  // }
+).then ( e => {
+  console.log("Connected to MongoDB", e);
+}).catch(err => {
+  console.error('error', err)
+});
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
