@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
@@ -12,6 +13,8 @@ const router = express.Router();
 const path = require("path");
 
 dotenv.config();
+
+app.use(cors());
 
 mongoose.connect(
   'mongodb+srv://admin:1234@cluster0.5n3c3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
