@@ -14,7 +14,7 @@ const path = require("path");
 dotenv.config();
 
 mongoose.connect(
-  process.env.MONGO_URL,
+  'mongodb+srv://admin:1234@cluster0.5n3c3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 
   { connectTimeoutMS: 100000, useNewUrlParser: true, useUnifiedTopology: true },
   
